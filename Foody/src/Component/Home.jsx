@@ -1,69 +1,23 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { useState,useEffect } from "react";
-import Swal from "sweetalert2";
-const Product = () => {
-
-    useEffect(() => {
-    
-        fetchData();
-        
-    }, []);
-
-    const [product, setProduct] = useState({
-       
-        ProductImage: "",
-        ProductName: "",
-        ProductAmount: "",
-        
-    });
 
 
-    const [allData, setAllData ] = useState([]);
-
-    function ProductData(e){
-
-        setProduct({...product, [e.target.name] : e.target.value});
-
-    }
-
-    function fetchData() {
-        fetch(`https://admin-c2bb8-default-rtdb.firebaseio.com/product.json`)
-          .then((response) => response.json())
-          .then((json) => {
-            setAllData(json);
-          });
-      }
-
-      function DeleteUser(deleteid) {
-        fetch(
-          `https://admin-c2bb8-default-rtdb.firebaseio.com/product/${deleteid}.json`,
-          {
-            method: "DELETE",
-          }
-        )
-          .then((response) => response.json())
-          .then((json) => {
-            Swal.fire("Product!", "Product Deleted Successfully!", "Success");
-            fetchData();
-          });
-      }
-
+const Home = () => {
 
     return(
 
-        <><div className="container-fluid fixed-top px-0 wow fadeIn" data-wow-delay="0.1s">
+<><div className="container-fluid fixed-top px-0 wow fadeIn" data-wow-delay="0.1s">
         <div className="top-bar row gx-0 align-items-center d-none d-lg-flex">
             <div className="col-lg-6 px-5 text-start">
-                <small><i className="fa fa-map-marker-alt me-2" />123 Street, New York, USA</small>
-                <small className="ms-4"><i className="fa fa-envelope me-2" />info@example.com</small>
+                <small><i className="fa fa-map-marker-alt me-2" />Narol, Ahmedabad, Gujarat</small>
+                <small className="ms-4"><i className="fa fa-envelope me-2" />shahdhaval201@gmail.com</small>
             </div>
             <div className="col-lg-6 px-5 text-end">
                 <small>Follow us:</small>
-                <a className="text-body ms-3" href=""><i className="fab fa-facebook-f" /></a>
-                <a className="text-body ms-3" href=""><i className="fab fa-twitter" /></a>
-                <a className="text-body ms-3" href=""><i className="fab fa-linkedin-in" /></a>
-                <a className="text-body ms-3" href=""><i className="fab fa-instagram" /></a>
+                <a class="text-body ms-3" href=""><i className="fab fa-facebook-f" /></a>
+                <a class="text-body ms-3" href=""><i className="fab fa-twitter" /></a>
+                <a class="text-body ms-3" href=""><i className="fab fa-linkedin-in" /></a>
+                <a class="text-body ms-3" href=""><i className="fab fa-instagram" /></a>
             </div>
         </div>
 
@@ -76,7 +30,7 @@ const Product = () => {
             </button>
             <div className="collapse navbar-collapse" id="navbarCollapse">
                 <div className="navbar-nav ms-auto p-4 p-lg-0">
-                <Link to="/" className="nav-item nav-link active">Home</Link>
+                    <Link to="#" className="nav-item nav-link active">Home</Link>
                     <Link to="/aboutus" className="nav-item nav-link">About Us</Link>
                     <Link to="/product" className="nav-item nav-link">Products</Link>
                     <div className="nav-item dropdown">
@@ -107,20 +61,111 @@ const Product = () => {
     { /* Navbar End */ }
 
 
-    { /* Page Header Start */ }
-    <div className="container-fluid page-header mb-5 wow fadeIn" data-wow-delay="0.1s">
-        <div className="container">
-            <h1 className="display-3 mb-3 animated slideInDown">Products</h1>
-            <nav aria-label="breadcrumb animated slideInDown">
-                <ol className="breadcrumb mb-0">
-                    <li className="breadcrumb-item"><a className="text-body" href="#">Home</a></li>
-                    <li className="breadcrumb-item"><a className="text-body" href="#">Pages</a></li>
-                    <li className="breadcrumb-item text-dark active" aria-current="page">Products</li>
-                </ol>
-            </nav>
+    { /* Carousel Start */ }
+    <div className="container-fluid p-0 mb-5 wow fadeIn" data-wow-delay="0.1s">
+        <div id="header-carousel" className="carousel slide" data-bs-ride="carousel">
+            <div className="carousel-inner">
+                <div className="carousel-item active">
+                    <img className="w-100" src="img/carousel-1.jpg" alt="Image" />
+                    <div className="carousel-caption">
+                        <div className="container">
+                            <div className="row justify-content-start">
+                                <div className="col-lg-7">
+                                    <h1 className="display-2 mb-5 animated slideInDown">Organic Food Is Good For Health</h1>
+                                    <a href="" className="btn btn-primary rounded-pill py-sm-3 px-sm-5">Products</a>
+                                    <a href="" className="btn btn-secondary rounded-pill py-sm-3 px-sm-5 ms-3">Services</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div className="carousel-item">
+                    <img className="w-100" src="img/carousel-2.jpg" alt="Image" />
+                    <div className="carousel-caption">
+                        <div className="container">
+                            <div className="row justify-content-start">
+                                <div className="col-lg-7">
+                                    <h1 className="display-2 mb-5 animated slideInDown">Natural Food Is Always Healthy</h1>
+                                    <a href="" className="btn btn-primary rounded-pill py-sm-3 px-sm-5">Products</a>
+                                    <a href="" className="btn btn-secondary rounded-pill py-sm-3 px-sm-5 ms-3">Services</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button className="carousel-control-prev" type="button" data-bs-target="#header-carousel" data-bs-slide="prev">
+                <span className="carousel-control-prev-icon" aria-hidden="true" />
+                <span className="visually-hidden">Previous</span>
+            </button>
+            <button className="carousel-control-next" type="button" data-bs-target="#header-carousel" data-bs-slide="next">
+                <span className="carousel-control-next-icon" aria-hidden="true" />
+                <span className="visually-hidden">Next</span>
+            </button>
         </div>
     </div>
-    { /* Page Header End */ }
+    { /* Carousel End */ }
+
+
+    { /* About Start */ }
+    <div className="container-xxl py-5">
+        <div className="container">
+            <div className="row g-5 align-items-center">
+                <div className="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
+                    <div className="about-img position-relative overflow-hidden p-5 pe-0">
+                        <img className="img-fluid w-100" src="img/about.jpg" />
+                    </div>
+                </div>
+                <div className="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
+                    <h1 className="display-5 mb-4">Best Organic Fruits And Vegetables</h1>
+                    <p className="mb-4">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo magna dolore erat amet</p>
+                    <p><i className="fa fa-check text-primary me-3" />Tempor erat elitr rebum at clita</p>
+                    <p><i className="fa fa-check text-primary me-3" />Aliqu diam amet diam et eos</p>
+                    <p><i className="fa fa-check text-primary me-3" />Clita duo justo magna dolore erat amet</p>
+                    <a className="btn btn-primary rounded-pill py-3 px-5 mt-3" href="">Read More</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    { /* About End */ }
+
+
+    { /* Feature Start */ }
+    <div className="container-fluid bg-light bg-icon my-5 py-6">
+        <div className="container">
+            <div className="section-header text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style={{ maxWidth: 500 }}>
+                <h1 className="display-5 mb-3">Our Features</h1>
+                <p>Tempor ut dolore lorem kasd vero ipsum sit eirmod sit. Ipsum diam justo sed rebum vero dolor duo.</p>
+            </div>
+            <div className="row g-4">
+                <div className="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <div className="bg-white text-center h-100 p-4 p-xl-5">
+                        <img className="img-fluid mb-4" src="img/icon-1.png" alt="" />
+                        <h4 className="mb-3">Natural Process</h4>
+                        <p className="mb-4">Tempor ut dolore lorem kasd vero ipsum sit eirmod sit. Ipsum diam justo sed vero dolor duo.</p>
+                        <a className="btn btn-outline-primary border-2 py-2 px-4 rounded-pill" href="">Read More</a>
+                    </div>
+                </div>
+                <div className="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                    <div className="bg-white text-center h-100 p-4 p-xl-5">
+                        <img className="img-fluid mb-4" src="img/icon-2.png" alt="" />
+                        <h4 className="mb-3">Organic Products</h4>
+                        <p className="mb-4">Tempor ut dolore lorem kasd vero ipsum sit eirmod sit. Ipsum diam justo sed vero dolor duo.</p>
+                        <a className="btn btn-outline-primary border-2 py-2 px-4 rounded-pill" href="">Read More</a>
+                    </div>
+                </div>
+                <div className="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                    <div className="bg-white text-center h-100 p-4 p-xl-5">
+                        <img className="img-fluid mb-4" src="img/icon-3.png" alt="" />
+                        <h4 className="mb-3">Biologically Safe</h4>
+                        <p className="mb-4">Tempor ut dolore lorem kasd vero ipsum sit eirmod sit. Ipsum diam justo sed vero dolor duo.</p>
+                        <a className="btn btn-outline-primary border-2 py-2 px-4 rounded-pill" href="">Read More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    { /* Feature End */ }
 
 
     { /* Product Start */ }
@@ -163,10 +208,10 @@ const Product = () => {
                                 </div>
                                 <div className="d-flex border-top">
                                     <small className="w-50 text-center border-end py-2">
-                                        <a className="text-body" href=""><i className="fa fa-eye text-primary me-2" />View detail</a>
+                                        <a class="text-body" href=""><i className="fa fa-eye text-primary me-2" />View detail</a>
                                     </small>
                                     <small className="w-50 text-center py-2">
-                                        <a className="text-body" href=""><i className="fa fa-shopping-bag text-primary me-2" />Add to cart</a>
+                                        <a class="text-body" href=""><i className="fa fa-shopping-bag text-primary me-2" />Add to cart</a>
                                     </small>
                                 </div>
                             </div>
@@ -184,10 +229,10 @@ const Product = () => {
                                 </div>
                                 <div className="d-flex border-top">
                                     <small className="w-50 text-center border-end py-2">
-                                        <a className="text-body" href=""><i className="fa fa-eye text-primary me-2" />View detail</a>
+                                        <a class="text-body" href=""><i className="fa fa-eye text-primary me-2" />View detail</a>
                                     </small>
                                     <small className="w-50 text-center py-2">
-                                        <a className="text-body" href=""><i className="fa fa-shopping-bag text-primary me-2" />Add to cart</a>
+                                        <a class="text-body" href=""><i className="fa fa-shopping-bag text-primary me-2" />Add to cart</a>
                                     </small>
                                 </div>
                             </div>
@@ -205,10 +250,10 @@ const Product = () => {
                                 </div>
                                 <div className="d-flex border-top">
                                     <small className="w-50 text-center border-end py-2">
-                                        <a className="text-body" href=""><i className="fa fa-eye text-primary me-2" />View detail</a>
+                                        <a class="text-body" href=""><i className="fa fa-eye text-primary me-2" />View detail</a>
                                     </small>
                                     <small className="w-50 text-center py-2">
-                                        <a className="text-body" href=""><i className="fa fa-shopping-bag text-primary me-2" />Add to cart</a>
+                                        <a class="text-body" href=""><i className="fa fa-shopping-bag text-primary me-2" />Add to cart</a>
                                     </small>
                                 </div>
                             </div>
@@ -226,10 +271,10 @@ const Product = () => {
                                 </div>
                                 <div className="d-flex border-top">
                                     <small className="w-50 text-center border-end py-2">
-                                        <a className="text-body" href=""><i className="fa fa-eye text-primary me-2" />View detail</a>
+                                        <a class="text-body" href=""><i className="fa fa-eye text-primary me-2" />View detail</a>
                                     </small>
                                     <small className="w-50 text-center py-2">
-                                        <a className="text-body" href=""><i className="fa fa-shopping-bag text-primary me-2" />Add to cart</a>
+                                        <a class="text-body" href=""><i className="fa fa-shopping-bag text-primary me-2" />Add to cart</a>
                                     </small>
                                 </div>
                             </div>
@@ -247,10 +292,10 @@ const Product = () => {
                                 </div>
                                 <div className="d-flex border-top">
                                     <small className="w-50 text-center border-end py-2">
-                                        <a className="text-body" href=""><i className="fa fa-eye text-primary me-2" />View detail</a>
+                                        <a class="text-body" href=""><i className="fa fa-eye text-primary me-2" />View detail</a>
                                     </small>
                                     <small className="w-50 text-center py-2">
-                                        <a className="text-body" href=""><i className="fa fa-shopping-bag text-primary me-2" />Add to cart</a>
+                                        <a class="text-body" href=""><i className="fa fa-shopping-bag text-primary me-2" />Add to cart</a>
                                     </small>
                                 </div>
                             </div>
@@ -268,10 +313,10 @@ const Product = () => {
                                 </div>
                                 <div className="d-flex border-top">
                                     <small className="w-50 text-center border-end py-2">
-                                        <a className="text-body" href=""><i className="fa fa-eye text-primary me-2" />View detail</a>
+                                        <a class="text-body" href=""><i className="fa fa-eye text-primary me-2" />View detail</a>
                                     </small>
                                     <small className="w-50 text-center py-2">
-                                        <a className="text-body" href=""><i className="fa fa-shopping-bag text-primary me-2" />Add to cart</a>
+                                        <a class="text-body" href=""><i className="fa fa-shopping-bag text-primary me-2" />Add to cart</a>
                                     </small>
                                 </div>
                             </div>
@@ -289,10 +334,10 @@ const Product = () => {
                                 </div>
                                 <div className="d-flex border-top">
                                     <small className="w-50 text-center border-end py-2">
-                                        <a className="text-body" href=""><i className="fa fa-eye text-primary me-2" />View detail</a>
+                                        <a class="text-body" href=""><i className="fa fa-eye text-primary me-2" />View detail</a>
                                     </small>
                                     <small className="w-50 text-center py-2">
-                                        <a className="text-body" href=""><i className="fa fa-shopping-bag text-primary me-2" />Add to cart</a>
+                                        <a class="text-body" href=""><i className="fa fa-shopping-bag text-primary me-2" />Add to cart</a>
                                     </small>
                                 </div>
                             </div>
@@ -310,55 +355,14 @@ const Product = () => {
                                 </div>
                                 <div className="d-flex border-top">
                                     <small className="w-50 text-center border-end py-2">
-                                        <a className="text-body" href=""><i className="fa fa-eye text-primary me-2" />View detail</a>
+                                        <a class="text-body" href=""><i className="fa fa-eye text-primary me-2" />View detail</a>
                                     </small>
                                     <small className="w-50 text-center py-2">
-                                        <a className="text-body" href=""><i className="fa fa-shopping-bag text-primary me-2" />Add to cart</a>
+                                        <a class="text-body" href=""><i className="fa fa-shopping-bag text-primary me-2" />Add to cart</a>
                                     </small>
                                 </div>
                             </div>
-                            </div>
-                            
-                            {Object.keys(allData).map((item,index) => {
-                                console.log("item",item)
-                                    const {ProductImage,ProductAmount,ProductName} = allData[item];
-                                    return(
-                                        <div className="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.7s">
-                                        <div className="product-item">
-                                        <div className="position-relative bg-light overflow-hidden">
-                                    <img className="img-fluid w-100" src={ProductImage} alt="" />
-                                    <div className="bg-secondary rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3">New</div>
-                                </div>
-                                <div className="text-center p-4">
-                                    <a className="d-block h5 mb-2" href="">{ProductName}</a>
-                                    <span className="text-primary me-1">$19.00</span>
-                                    <span className="text-body text-decoration-line-through">{ProductAmount}</span>
-                                    {/* <button
-                                  className="btn btn-danger mr-1"
-                                  onClick={() => DeleteUser(item)}
-                                >
-                                  Delete Product
-                                </button> */}<br></br>
-                                <span id="boot-icon" onClick={() => DeleteUser(item)} className="bi bi-trash" style={{ fontSize: "1.8rem", color: "rgb(0, 0, 255)" }} />
-                                </div>
-                                <div className="d-flex border-top">
-                                    <small className="w-50 text-center border-end py-2">
-                                        <a className="text-body" href=""><i className="fa fa-eye text-primary me-2" />View detail</a>
-                                    </small>
-                                    <small className="w-50 text-center py-2">
-                                        <a className="text-body" href=""><i className="fa fa-shopping-bag text-primary me-2" />Add to cart</a>
-                                    </small>
-                                </div>
-                                        </div>
-                                        </div>
-                                        
-
-                                    );
-                            })}
-
-                      
-
-                        
+                        </div>
                         <div className="col-12 text-center wow fadeInUp" data-wow-delay="0.1s">
                             <a className="btn btn-primary rounded-pill py-3 px-5" href="">Browse More Products</a>
                         </div>
@@ -379,10 +383,10 @@ const Product = () => {
                                 </div>
                                 <div className="d-flex border-top">
                                     <small className="w-50 text-center border-end py-2">
-                                        <a className="text-body" href=""><i className="fa fa-eye text-primary me-2" />View detail</a>
+                                        <a class="text-body" href=""><i className="fa fa-eye text-primary me-2" />View detail</a>
                                     </small>
                                     <small className="w-50 text-center py-2">
-                                        <a className="text-body" href=""><i className="fa fa-shopping-bag text-primary me-2" />Add to cart</a>
+                                        <a class="text-body" href=""><i className="fa fa-shopping-bag text-primary me-2" />Add to cart</a>
                                     </small>
                                 </div>
                             </div>
@@ -400,10 +404,10 @@ const Product = () => {
                                 </div>
                                 <div className="d-flex border-top">
                                     <small className="w-50 text-center border-end py-2">
-                                        <a className="text-body" href=""><i className="fa fa-eye text-primary me-2" />View detail</a>
+                                        <a class="text-body" href=""><i className="fa fa-eye text-primary me-2" />View detail</a>
                                     </small>
                                     <small className="w-50 text-center py-2">
-                                        <a className="text-body" href=""><i className="fa fa-shopping-bag text-primary me-2" />Add to cart</a>
+                                        <a class="text-body" href=""><i className="fa fa-shopping-bag text-primary me-2" />Add to cart</a>
                                     </small>
                                 </div>
                             </div>
@@ -421,10 +425,10 @@ const Product = () => {
                                 </div>
                                 <div className="d-flex border-top">
                                     <small className="w-50 text-center border-end py-2">
-                                        <a className="text-body" href=""><i className="fa fa-eye text-primary me-2" />View detail</a>
+                                        <a class="text-body" href=""><i className="fa fa-eye text-primary me-2" />View detail</a>
                                     </small>
                                     <small className="w-50 text-center py-2">
-                                        <a className="text-body" href=""><i className="fa fa-shopping-bag text-primary me-2" />Add to cart</a>
+                                        <a class="text-body" href=""><i className="fa fa-shopping-bag text-primary me-2" />Add to cart</a>
                                     </small>
                                 </div>
                             </div>
@@ -442,10 +446,10 @@ const Product = () => {
                                 </div>
                                 <div className="d-flex border-top">
                                     <small className="w-50 text-center border-end py-2">
-                                        <a className="text-body" href=""><i className="fa fa-eye text-primary me-2" />View detail</a>
+                                        <a class="text-body" href=""><i className="fa fa-eye text-primary me-2" />View detail</a>
                                     </small>
                                     <small className="w-50 text-center py-2">
-                                        <a className="text-body" href=""><i className="fa fa-shopping-bag text-primary me-2" />Add to cart</a>
+                                        <a class="text-body" href=""><i className="fa fa-shopping-bag text-primary me-2" />Add to cart</a>
                                     </small>
                                 </div>
                             </div>
@@ -463,10 +467,10 @@ const Product = () => {
                                 </div>
                                 <div className="d-flex border-top">
                                     <small className="w-50 text-center border-end py-2">
-                                        <a className="text-body" href=""><i className="fa fa-eye text-primary me-2" />View detail</a>
+                                        <a class="text-body" href=""><i className="fa fa-eye text-primary me-2" />View detail</a>
                                     </small>
                                     <small className="w-50 text-center py-2">
-                                        <a className="text-body" href=""><i className="fa fa-shopping-bag text-primary me-2" />Add to cart</a>
+                                        <a class="text-body" href=""><i className="fa fa-shopping-bag text-primary me-2" />Add to cart</a>
                                     </small>
                                 </div>
                             </div>
@@ -484,10 +488,10 @@ const Product = () => {
                                 </div>
                                 <div className="d-flex border-top">
                                     <small className="w-50 text-center border-end py-2">
-                                        <a className="text-body" href=""><i className="fa fa-eye text-primary me-2" />View detail</a>
+                                        <a class="text-body" href=""><i className="fa fa-eye text-primary me-2" />View detail</a>
                                     </small>
                                     <small className="w-50 text-center py-2">
-                                        <a className="text-body" href=""><i className="fa fa-shopping-bag text-primary me-2" />Add to cart</a>
+                                        <a class="text-body" href=""><i className="fa fa-shopping-bag text-primary me-2" />Add to cart</a>
                                     </small>
                                 </div>
                             </div>
@@ -505,10 +509,10 @@ const Product = () => {
                                 </div>
                                 <div className="d-flex border-top">
                                     <small className="w-50 text-center border-end py-2">
-                                        <a className="text-body" href=""><i className="fa fa-eye text-primary me-2" />View detail</a>
+                                        <a class="text-body" href=""><i className="fa fa-eye text-primary me-2" />View detail</a>
                                     </small>
                                     <small className="w-50 text-center py-2">
-                                        <a className="text-body" href=""><i className="fa fa-shopping-bag text-primary me-2" />Add to cart</a>
+                                        <a class="text-body" href=""><i className="fa fa-shopping-bag text-primary me-2" />Add to cart</a>
                                     </small>
                                 </div>
                             </div>
@@ -526,10 +530,10 @@ const Product = () => {
                                 </div>
                                 <div className="d-flex border-top">
                                     <small className="w-50 text-center border-end py-2">
-                                        <a className="text-body" href=""><i className="fa fa-eye text-primary me-2" />View detail</a>
+                                        <a class="text-body" href=""><i className="fa fa-eye text-primary me-2" />View detail</a>
                                     </small>
                                     <small className="w-50 text-center py-2">
-                                        <a className="text-body" href=""><i className="fa fa-shopping-bag text-primary me-2" />Add to cart</a>
+                                        <a class="text-body" href=""><i className="fa fa-shopping-bag text-primary me-2" />Add to cart</a>
                                     </small>
                                 </div>
                             </div>
@@ -554,10 +558,10 @@ const Product = () => {
                                 </div>
                                 <div className="d-flex border-top">
                                     <small className="w-50 text-center border-end py-2">
-                                        <a className="text-body" href=""><i className="fa fa-eye text-primary me-2" />View detail</a>
+                                        <a class="text-body" href=""><i className="fa fa-eye text-primary me-2" />View detail</a>
                                     </small>
                                     <small className="w-50 text-center py-2">
-                                        <a className="text-body" href=""><i className="fa fa-shopping-bag text-primary me-2" />Add to cart</a>
+                                        <a class="text-body" href=""><i className="fa fa-shopping-bag text-primary me-2" />Add to cart</a>
                                     </small>
                                 </div>
                             </div>
@@ -575,10 +579,10 @@ const Product = () => {
                                 </div>
                                 <div className="d-flex border-top">
                                     <small className="w-50 text-center border-end py-2">
-                                        <a className="text-body" href=""><i className="fa fa-eye text-primary me-2" />View detail</a>
+                                        <a class="text-body" href=""><i className="fa fa-eye text-primary me-2" />View detail</a>
                                     </small>
                                     <small className="w-50 text-center py-2">
-                                        <a className="text-body" href=""><i className="fa fa-shopping-bag text-primary me-2" />Add to cart</a>
+                                        <a class="text-body" href=""><i className="fa fa-shopping-bag text-primary me-2" />Add to cart</a>
                                     </small>
                                 </div>
                             </div>
@@ -596,10 +600,10 @@ const Product = () => {
                                 </div>
                                 <div className="d-flex border-top">
                                     <small className="w-50 text-center border-end py-2">
-                                        <a className="text-body" href=""><i className="fa fa-eye text-primary me-2" />View detail</a>
+                                        <a class="text-body" href=""><i className="fa fa-eye text-primary me-2" />View detail</a>
                                     </small>
                                     <small className="w-50 text-center py-2">
-                                        <a className="text-body" href=""><i className="fa fa-shopping-bag text-primary me-2" />Add to cart</a>
+                                        <a class="text-body" href=""><i className="fa fa-shopping-bag text-primary me-2" />Add to cart</a>
                                     </small>
                                 </div>
                             </div>
@@ -617,10 +621,10 @@ const Product = () => {
                                 </div>
                                 <div className="d-flex border-top">
                                     <small className="w-50 text-center border-end py-2">
-                                        <a className="text-body" href=""><i className="fa fa-eye text-primary me-2" />View detail</a>
+                                        <a class="text-body" href=""><i className="fa fa-eye text-primary me-2" />View detail</a>
                                     </small>
                                     <small className="w-50 text-center py-2">
-                                        <a className="text-body" href=""><i className="fa fa-shopping-bag text-primary me-2" />Add to cart</a>
+                                        <a class="text-body" href=""><i className="fa fa-shopping-bag text-primary me-2" />Add to cart</a>
                                     </small>
                                 </div>
                             </div>
@@ -638,10 +642,10 @@ const Product = () => {
                                 </div>
                                 <div className="d-flex border-top">
                                     <small className="w-50 text-center border-end py-2">
-                                        <a className="text-body" href=""><i className="fa fa-eye text-primary me-2" />View detail</a>
+                                        <a class="text-body" href=""><i className="fa fa-eye text-primary me-2" />View detail</a>
                                     </small>
                                     <small className="w-50 text-center py-2">
-                                        <a className="text-body" href=""><i className="fa fa-shopping-bag text-primary me-2" />Add to cart</a>
+                                        <a class="text-body" href=""><i className="fa fa-shopping-bag text-primary me-2" />Add to cart</a>
                                     </small>
                                 </div>
                             </div>
@@ -659,10 +663,10 @@ const Product = () => {
                                 </div>
                                 <div className="d-flex border-top">
                                     <small className="w-50 text-center border-end py-2">
-                                        <a className="text-body" href=""><i className="fa fa-eye text-primary me-2" />View detail</a>
+                                        <a class="text-body" href=""><i className="fa fa-eye text-primary me-2" />View detail</a>
                                     </small>
                                     <small className="w-50 text-center py-2">
-                                        <a className="text-body" href=""><i className="fa fa-shopping-bag text-primary me-2" />Add to cart</a>
+                                        <a class="text-body" href=""><i className="fa fa-shopping-bag text-primary me-2" />Add to cart</a>
                                     </small>
                                 </div>
                             </div>
@@ -680,10 +684,10 @@ const Product = () => {
                                 </div>
                                 <div className="d-flex border-top">
                                     <small className="w-50 text-center border-end py-2">
-                                        <a className="text-body" href=""><i className="fa fa-eye text-primary me-2" />View detail</a>
+                                        <a class="text-body" href=""><i className="fa fa-eye text-primary me-2" />View detail</a>
                                     </small>
                                     <small className="w-50 text-center py-2">
-                                        <a className="text-body" href=""><i className="fa fa-shopping-bag text-primary me-2" />Add to cart</a>
+                                        <a class="text-body" href=""><i className="fa fa-shopping-bag text-primary me-2" />Add to cart</a>
                                     </small>
                                 </div>
                             </div>
@@ -701,10 +705,10 @@ const Product = () => {
                                 </div>
                                 <div className="d-flex border-top">
                                     <small className="w-50 text-center border-end py-2">
-                                        <a className="text-body" href=""><i className="fa fa-eye text-primary me-2" />View detail</a>
+                                        <a class="text-body" href=""><i className="fa fa-eye text-primary me-2" />View detail</a>
                                     </small>
                                     <small className="w-50 text-center py-2">
-                                        <a className="text-body" href=""><i className="fa fa-shopping-bag text-primary me-2" />Add to cart</a>
+                                        <a class="text-body" href=""><i className="fa fa-shopping-bag text-primary me-2" />Add to cart</a>
                                     </small>
                                 </div>
                             </div>
@@ -738,7 +742,7 @@ const Product = () => {
 
 
     { /* Testimonial Start */ }
-    <div className="container-fluid bg-light bg-icon py-6">
+    <div className="container-fluid bg-light bg-icon py-6 mb-5">
         <div className="container">
             <div className="section-header text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style={{ maxWidth: 500 }}>
                 <h1 className="display-5 mb-3">Customer Review</h1>
@@ -795,18 +799,62 @@ const Product = () => {
     { /* Testimonial End */ }
 
 
+    { /* Blog Start */ }
+    <div className="container-xxl py-5">
+        <div className="container">
+            <div className="section-header text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style={{ maxWidth: 500 }}>
+                <h1 className="display-5 mb-3">Latest Blog</h1>
+                <p>Tempor ut dolore lorem kasd vero ipsum sit eirmod sit. Ipsum diam justo sed rebum vero dolor duo.</p>
+            </div>
+            <div className="row g-4">
+                <div className="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <img className="img-fluid" src="img/blog-1.jpg" alt="" />
+                    <div className="bg-light p-4">
+                        <a className="d-block h5 lh-base mb-4" href="">How to cultivate organic fruits and vegetables in own firm</a>
+                        <div className="text-muted border-top pt-4">
+                            <small className="me-3"><i className="fa fa-user text-primary me-2" />Admin</small>
+                            <small className="me-3"><i className="fa fa-calendar text-primary me-2" />01 Jan, 2045</small>
+                        </div>
+                    </div>
+                </div>
+                <div className="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                    <img className="img-fluid" src="img/blog-2.jpg" alt="" />
+                    <div className="bg-light p-4">
+                        <a className="d-block h5 lh-base mb-4" href="">How to cultivate organic fruits and vegetables in own firm</a>
+                        <div className="text-muted border-top pt-4">
+                            <small className="me-3"><i className="fa fa-user text-primary me-2" />Admin</small>
+                            <small className="me-3"><i className="fa fa-calendar text-primary me-2" />01 Jan, 2045</small>
+                        </div>
+                    </div>
+                </div>
+                <div className="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                    <img className="img-fluid" src="img/blog-3.jpg" alt="" />
+                    <div className="bg-light p-4">
+                        <a className="d-block h5 lh-base mb-4" href="">How to cultivate organic fruits and vegetables in own firm</a>
+                        <div className="text-muted border-top pt-4">
+                            <small className="me-3"><i className="fa fa-user text-primary me-2" />Admin</small>
+                            <small className="me-3"><i className="fa fa-calendar text-primary me-2" />01 Jan, 2045</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    { /* Blog End */ }
+
+
     { /* Footer Start */ }
-    <div className="container-fluid bg-dark footer pt-5 wow fadeIn" data-wow-delay="0.1s">
+    <div className="container-fluid bg-dark footer mt-5 pt-5 wow fadeIn" data-wow-delay="0.1s">
         <div className="container py-5">
             <div className="row g-5">
                 <div className="col-lg-3 col-md-6">
                     <h1 className="fw-bold text-primary mb-4">F<span className="text-secondary">oo</span>dy</h1>
                     <p>Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita</p>
                     <div className="d-flex pt-2">
-                        <a className="btn btn-square btn-outline-light rounded-circle me-1" href=""><i className="fab fa-twitter" /></a>
-                        <a className="btn btn-square btn-outline-light rounded-circle me-1" href=""><i className="fab fa-facebook-f" /></a>
-                        <a className="btn btn-square btn-outline-light rounded-circle me-1" href=""><i className="fab fa-youtube" /></a>
-                        <a className="btn btn-square btn-outline-light rounded-circle me-0" href=""><i className="fab fa-linkedin-in" /></a>
+                        <a class="btn btn-square btn-outline-light rounded-circle me-1" href=""><i className="fab fa-twitter" /></a>
+                        <a class="btn btn-square btn-outline-light rounded-circle me-1" href=""><i className="fab fa-facebook-f" /></a>
+                        <a class="btn btn-square btn-outline-light rounded-circle me-1" href=""><i className="fab fa-youtube" /></a>
+                        <a class="btn btn-square btn-outline-light rounded-circle me-0" href=""><i className="fab fa-linkedin-in" /></a>
                     </div>
                 </div>
                 <div className="col-lg-3 col-md-6">
@@ -840,13 +888,14 @@ const Product = () => {
                         © <a href="#">Your Site Name</a>, All Right Reserved.
                     </div>
                     <div className="col-md-6 text-center text-md-end">
-                        Designed By <a href="https://htmlcodex.com">HTML Codex</a>
+                          Designed By <a href="https://htmlcodex.com">HTML Codex</a>
                         <br />Distributed By: <a href="https://themewagon.com" target="_blank">ThemeWagon</a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
     { /* Footer End */ }
 
 
@@ -857,4 +906,4 @@ const Product = () => {
 
 }
 
-export default Product;
+export default Home;

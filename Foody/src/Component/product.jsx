@@ -44,7 +44,7 @@ const Product = () => {
         )
           .then((response) => response.json())
           .then((json) => {
-            Swal.fire("Product!", "Product Deleted Successfully!", "Success");
+            Swal.fire("Category!", "Record Deleted Successfully!", "Success");
             fetchData();
           });
       }
@@ -76,7 +76,7 @@ const Product = () => {
             </button>
             <div className="collapse navbar-collapse" id="navbarCollapse">
                 <div className="navbar-nav ms-auto p-4 p-lg-0">
-                <Link to="/" className="nav-item nav-link active">Home</Link>
+                <Link to="#" className="nav-item nav-link active">Home</Link>
                     <Link to="/aboutus" className="nav-item nav-link">About Us</Link>
                     <Link to="/product" className="nav-item nav-link">Products</Link>
                     <div className="nav-item dropdown">
